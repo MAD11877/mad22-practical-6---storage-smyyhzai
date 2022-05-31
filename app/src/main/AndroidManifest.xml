@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Prac3">
         <activity
+            android:name=".MessageGroup"
+            android:exported="false" />
+        <activity
+            android:name=".ListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
