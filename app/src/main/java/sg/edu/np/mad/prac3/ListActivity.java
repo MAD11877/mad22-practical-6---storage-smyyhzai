@@ -25,6 +25,8 @@ public class ListActivity extends AppCompatActivity {
         Intent myIntent = new Intent(ListActivity.this, MainActivity.class);
         startActivity(myIntent);
 
+
+
         ImageView profileImg = findViewById(R.id.imageView);
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,7 @@ public class ListActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id){
                     }
                 });
+
                 AlertDialog alert = builder.create();
                 alert.show();
             }

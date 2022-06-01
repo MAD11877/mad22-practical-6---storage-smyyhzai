@@ -7,23 +7,48 @@
     tools:context=".MessageGroup">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="370dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
+        android:id="@+id/fg1button"
+        android:layout_width="369dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="GROUP 1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="370dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
+        android:id="@+id/fg2button"
+        android:layout_width="371dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="88dp"
         android:text="group 2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:layout_width="409dp"
+        android:layout_height="592dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="138dp">
+
+        <fragment
+            android:id="@+id/fooFragment"
+            android:name="fragmentpart"
+            android:layout_width="match_parent"
+            android:layout_height="589dp" />
+    </FrameLayout>
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        android:layout_width="418dp"
+        android:layout_height="593dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="138dp">
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

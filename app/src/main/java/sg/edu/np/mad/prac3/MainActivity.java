@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Intent receiving = getIntent();
+
         Button myFollowButton = findViewById(R.id.followbutton);
         TextView profileName = findViewById(R.id.textView);
         Random ran = new Random();   //calling random class assigning to a variable random
         int value = ran.nextInt(999999);
         String profileNameText = (String) profileName.getText();
         profileName.setText(profileNameText + value);
+
+        Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
+        startActivity(myIntent);
 
         myFollowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                     Log.v(TAG, "Followed user!");
                     myFollowButton.setText("UNFOLLOW");
                     Toast.makeText(MainActivity.this,"Followed user!", Toast.LENGTH_SHORT).show();
+
+                    Button mssgButton = findViewById(R.id.mssgbutton);
+                    mssgButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent messageIntent = new Intent(MainActivity.this, MessageGroup.class);
+                            startActivity(messageIntent);
+                        }
+                    });
+
                 }
                 else{
                     Log.v(TAG, "Unfollowed user!");
