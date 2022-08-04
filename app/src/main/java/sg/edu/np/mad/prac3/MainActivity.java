@@ -18,7 +18,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "Main Activity";
-    //private ArrayList<User> usersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
