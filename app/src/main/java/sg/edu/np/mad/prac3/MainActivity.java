@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Intent receiving = getIntent();
+        Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
+        startActivity(myIntent);
 
         Button myFollowButton = findViewById(R.id.followbutton);
         TextView profileName = findViewById(R.id.textView);
@@ -31,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         int value = ran.nextInt(999999);
         String profileNameText = (String) profileName.getText();
         profileName.setText(profileNameText + value);
-
-        //Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
-        //startActivity(myIntent);
 
         myFollowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     mssgButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent messageIntent = new Intent(MainActivity.this, MessageGroup.class);
+                            Intent messageIntent = new Intent(MainActivity.this, MessageGroup2.class);
                             startActivity(messageIntent);
                         }
                     });

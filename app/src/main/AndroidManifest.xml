@@ -13,9 +13,6 @@
             android:name=".MessageGroup2"
             android:exported="false" />
         <activity
-            android:name=".MessageGroup"
-            android:exported="false" />
-        <activity
             android:name=".ListActivity"
             android:exported="false" />
         <activity
