@@ -12,52 +12,61 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "Main Activity";
+    //private ArrayList<User> usersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
-        startActivity(myIntent);
-
-        Button myFollowButton = findViewById(R.id.followbutton);
+        Button followButton = findViewById(R.id.followbutton);
         TextView profileName = findViewById(R.id.textView);
-        Random ran = new Random();   //calling random class assigning to a variable random
-        int value = ran.nextInt(999999);
-        String profileNameText = (String) profileName.getText();
-        profileName.setText(profileNameText + value);
+        TextView profileDesc = findViewById(R.id.textView2);
 
-        myFollowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+        Intent receivingEnd = getIntent();
+        String name = receivingEnd.getStringExtra("name");
+        String desc = receivingEnd.getStringExtra("description");
+
+        profileName.setText(name);
+        profileDesc.setText(desc);
+
+        Button mssgButton = findViewById(R.id.mssgbutton);
+        mssgButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String buttonText = (String) myFollowButton.getText();
+                Intent viewMessage = new Intent(MainActivity.this, MessageGroup2.class);
+                startActivity(viewMessage);
+            }
+        });
 
-                if(buttonText == "FOLLOW"){
-                    Log.v(TAG, "Followed user!");
-                    myFollowButton.setText("UNFOLLOW");
+        Button listAct = findViewById(R.id.listActButton);
+        listAct.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent viewList = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(viewList);
+            }
+        });
+
+        followButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                //User user = new User();
+                //boolean followValue = user.getFollowed();
+
+                if(followButton.getText().toString().equals("FOLLOW")){
                     Toast.makeText(MainActivity.this,"Followed user!", Toast.LENGTH_SHORT).show();
-
-                    Button mssgButton = findViewById(R.id.mssgbutton);
-                    mssgButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent messageIntent = new Intent(MainActivity.this, MessageGroup2.class);
-                            startActivity(messageIntent);
-                        }
-                    });
-
+                    followButton.setText("UNFOLLOW");
+                    //set follow value true/false
+                    //followValue = true;
                 }
-                else{
-                    Log.v(TAG, "Unfollowed user!");
-                    myFollowButton.setText("FOLLOW");
+                else if(followButton.getText().toString().equals("UNFOLLOW")){
+                    followButton.setText("FOLLOW");
+                    //followValue = false;
                     Toast.makeText(MainActivity.this,"Unfollowed user!", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

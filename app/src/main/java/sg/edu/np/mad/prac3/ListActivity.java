@@ -1,6 +1,9 @@
 package sg.edu.np.mad.prac3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,50 +11,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+
+    private ArrayList<User> usersList;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        recyclerView = findViewById(R.id.recyclerView);
+        usersList = new ArrayList<>();
 
-        ImageView profileImg = findViewById(R.id.imageView);
-        profileImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //alertdialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(ListActivity.this);
-                builder.setTitle("Profile");
-                builder.setMessage("MADness");
-                builder.setCancelable(false);
-                builder.setPositiveButton("View", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int id){
-                        Intent myIntent = new Intent(ListActivity.this, MainActivity.class);
-                        startActivity(myIntent);
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int id){
-                    }
-                });
+        setUserInfo();
+        setAdapter();
 
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
+    }
+    private void setAdapter() {
+        recyclerAdapter adapter = new recyclerAdapter(usersList,ListActivity.this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
 
-
-
-
-
+    private void setUserInfo() {
+        for(int i = 0; i < 21; i++){
+            Random ran = new Random();
+            int value = ran.nextInt(999999);
+            int value2 = ran.nextInt(9999999);
+            usersList.add(new User("Name" + value, "Description" + value2, i, ran.nextBoolean()));
+        }
     }
 }
