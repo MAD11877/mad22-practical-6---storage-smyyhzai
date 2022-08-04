@@ -22,11 +22,6 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        Intent myIntent = new Intent(ListActivity.this, MainActivity.class);
-        startActivity(myIntent);
-
-
-
         ImageView profileImg = findViewById(R.id.imageView);
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override

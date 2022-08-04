@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         String profileNameText = (String) profileName.getText();
         profileName.setText(profileNameText + value);
 
-        Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
-        startActivity(myIntent);
+        //Intent myIntent = new Intent(MainActivity.this, ListActivity.class);
+        //startActivity(myIntent);
 
         myFollowButton.setOnClickListener(new View.OnClickListener() {
             @Override

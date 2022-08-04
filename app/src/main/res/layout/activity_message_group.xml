@@ -12,7 +12,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="GROUP 1"
+        android:layout_marginEnd="18dp"
+        android:text="group 1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,34 +23,27 @@
         android:layout_width="371dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
         android:text="group 2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fg1button" />
 
     <FrameLayout
-        android:layout_width="409dp"
-        android:layout_height="592dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="138dp">
+        android:id="@+id/Frame"
+        android:layout_width="417dp"
+        android:layout_height="547dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fg2button"
+        app:layout_constraintVertical_bias="1.0">
 
-        <fragment
-            android:id="@+id/fooFragment"
-            android:name="fragmentpart"
-            android:layout_width="match_parent"
-            android:layout_height="589dp" />
     </FrameLayout>
 
     <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
-        android:layout_width="418dp"
-        android:layout_height="593dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="138dp">
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

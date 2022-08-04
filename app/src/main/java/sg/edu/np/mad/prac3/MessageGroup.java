@@ -18,7 +18,6 @@ public class MessageGroup extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_group);
 
-
         Button firstFragmentBtn, secondFragmentBtn;
         firstFragmentBtn = findViewById(R.id.fg1button);
         secondFragmentBtn = findViewById(R.id.fg2button);
@@ -26,9 +25,7 @@ public class MessageGroup extends AppCompatActivity{
         firstFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 replaceFragment(new fragment1());
-
             }
         });
 
@@ -36,18 +33,15 @@ public class MessageGroup extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 replaceFragment(new fragment2());
-
             }
         });
-
-
     }
 
     private void replaceFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fooFragment, fragment);
+        fragmentTransaction.replace(R.id.Frame, fragment);
         fragmentTransaction.commit();
 
     }
