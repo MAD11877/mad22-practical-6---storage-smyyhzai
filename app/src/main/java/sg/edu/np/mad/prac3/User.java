@@ -43,7 +43,7 @@ public class User {
         return followed;
     }
 
-    public void setFollowed(Boolean followed) {
+    public void setFollowed(String followed) {
         this.followed = followed;
     }
 }

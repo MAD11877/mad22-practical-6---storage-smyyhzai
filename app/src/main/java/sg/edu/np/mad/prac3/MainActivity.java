@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private final String TAG = "Main Activity";
+    User user = new User("sum", "hola", 1, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent receivingEnd = getIntent();
         String name = receivingEnd.getStringExtra("name");
+        user.setName(name);
         String desc = receivingEnd.getStringExtra("description");
+        user.setDescription(desc);
 
         profileName.setText(name);
         profileDesc.setText(desc);
@@ -53,18 +55,17 @@ public class MainActivity extends AppCompatActivity {
 
         followButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //User user = new User();
-                //boolean followValue = user.getFollowed();
-
                 if(followButton.getText().toString().equals("FOLLOW")){
                     Toast.makeText(MainActivity.this,"Followed user!", Toast.LENGTH_SHORT).show();
                     followButton.setText("UNFOLLOW");
+                    user.setFollowed(true);
                     //set follow value true/false
                     //followValue = true;
                 }
                 else if(followButton.getText().toString().equals("UNFOLLOW")){
                     followButton.setText("FOLLOW");
                     //followValue = false;
+                    user.setFollowed(false);
                     Toast.makeText(MainActivity.this,"Unfollowed user!", Toast.LENGTH_SHORT).show();
                 }
             }
